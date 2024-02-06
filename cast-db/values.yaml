@@ -1,0 +1,27 @@
+replicaCount: 1
+postgres:
+  name: postgres-cast
+  group: db
+  container:
+    image: postgres:latest
+    port: 5432
+  service:
+    type: NodePort
+    protocol: TCP
+  volume:
+    name: cast-storage
+    kind: PersistentVolumeClaim
+    mountPath: /var/lib/postgresql/data
+    pvc:
+      name: cast_db_pvc
+      accessMode: ReadWriteMany
+      storage: 10Gi
+  config:
+    name: postgres-config-cast
+    data:
+      - key: POSTGRES_DB
+        value: cast_db_dev
+      - key: POSTGRES_USER
+        value: cast_db_username
+      - key: POSTGRES_PASSWORD
+        value: cast_db_password
