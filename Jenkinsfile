@@ -127,7 +127,7 @@ stages {// CAST
                 steps {
                     script {
                     sh '''
-                    docker run -d -p 8080:8080 --name nginx $DOCKER_ID/$DOCKER_NGINX_IMAGE:$DOCKER_TAG
+                    docker run -d -p 8081:8080 --name nginx $DOCKER_ID/$DOCKER_NGINX_IMAGE:$DOCKER_TAG
                     sleep 10
                     '''
                     }
