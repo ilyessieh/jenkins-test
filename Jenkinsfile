@@ -41,7 +41,7 @@ stages {// CAST
             }
 
         }
-        stage('Docker Push'){ //we pass the built image to our docker hub account
+        stage('Docker Push cast'){ //we pass the built image to our docker hub account
             environment
             {
                 DOCKER_PASS = credentials("DOCKER_HUB_PASS") // we retrieve  docker password from secret text called docker_hub_pass saved on jenkins
@@ -123,7 +123,7 @@ stages {// CAST
                 }
             }
         }    
-        stage('Docker run cast'){ // run container from our builded image
+        stage('Docker run nginx'){ // run container from our builded image
                 steps {
                     script {
                     sh '''
@@ -133,7 +133,7 @@ stages {// CAST
                     }
                 }
             }
-        stage('Test Acceptance cast'){ // we launch the curl command to validate that the container responds to the request
+        stage('Test Acceptance nginx'){ // we launch the curl command to validate that the container responds to the request
             steps {
                     script {
                     sh '''
@@ -143,7 +143,7 @@ stages {// CAST
             }
 
         }
-        stage('Docker Push'){ //we pass the built image to our docker hub account
+        stage('Docker Push nginx'){ //we pass the built image to our docker hub account
             environment
             {
                 DOCKER_PASS = credentials("DOCKER_HUB_PASS") // we retrieve  docker password from secret text called docker_hub_pass saved on jenkins
@@ -163,7 +163,7 @@ stages {// CAST
         
 
 // deploiement CAST-DB
-stage('Deploiement en dev '){
+stage('Deploiement en dev cast-db '){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -182,7 +182,7 @@ stage('Deploiement en dev '){
             }
 
         }
-stage('Deploiement en qa '){
+stage('Deploiement en qa cast-db '){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -201,7 +201,7 @@ stage('Deploiement en qa '){
             }
 
         }
-stage('Deploiement en staging'){
+stage('Deploiement en staging cast-db'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -220,7 +220,7 @@ stage('Deploiement en staging'){
             }
 
         }
-  stage('Deploiement en prod'){
+  stage('Deploiement en prod cast-db'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -246,7 +246,7 @@ stage('Deploiement en staging'){
 
         }
 // deploiement MOVIE-DB
-stage('Deploiement en dev '){
+stage('Deploiement en dev movie-db '){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -265,7 +265,7 @@ stage('Deploiement en dev '){
             }
 
         }
-stage('Deploiement en qa '){
+stage('Deploiement en qa movie-db '){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -284,7 +284,7 @@ stage('Deploiement en qa '){
             }
 
         }
-stage('Deploiement en staging'){
+stage('Deploiement en staging movie-db'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -303,7 +303,7 @@ stage('Deploiement en staging'){
             }
 
         }
-  stage('Deploiement en prod'){
+  stage('Deploiement en prod movie-db'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -329,7 +329,7 @@ stage('Deploiement en staging'){
 
         }
 //deploiement CAST-SERVICE
-stage('Deploiement en dev'){
+stage('Deploiement en dev cast'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -350,7 +350,7 @@ stage('Deploiement en dev'){
             }
 
         }
-stage('Deploiement en qa'){
+stage('Deploiement en qa cast'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -371,7 +371,7 @@ stage('Deploiement en qa'){
             }
 
         }
-stage('Deploiement en staging'){
+stage('Deploiement en staging cast'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -392,7 +392,7 @@ stage('Deploiement en staging'){
             }
 
         }
-  stage('Deploiement en prod'){
+  stage('Deploiement en prod cast'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -421,7 +421,7 @@ stage('Deploiement en staging'){
         }
 
 //deploiement MOVIE-SERVICE
-stage('Deploiement en dev'){
+stage('Deploiement en dev movie'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -442,7 +442,7 @@ stage('Deploiement en dev'){
             }
 
         }
-stage('Deploiement en qa'){
+stage('Deploiement en qa movie'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -463,7 +463,7 @@ stage('Deploiement en qa'){
             }
 
         }
-stage('Deploiement en staging'){
+stage('Deploiement en staging movie'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -484,7 +484,7 @@ stage('Deploiement en staging'){
             }
 
         }
-  stage('Deploiement en prod'){
+  stage('Deploiement en prod movie'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -513,7 +513,7 @@ stage('Deploiement en staging'){
         }
 
 //deploiement NGINX
-stage('Deploiement en dev'){
+stage('Deploiement en dev nginx'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -534,7 +534,7 @@ stage('Deploiement en dev'){
             }
 
         }
-stage('Deploiement en qa'){
+stage('Deploiement en qa nginx'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -555,7 +555,7 @@ stage('Deploiement en qa'){
             }
 
         }
-stage('Deploiement en staging'){
+stage('Deploiement en staging nginx'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
@@ -576,7 +576,7 @@ stage('Deploiement en staging'){
             }
 
         }
-  stage('Deploiement en prod'){
+  stage('Deploiement en prod nginx'){
         environment
         {
         KUBECONFIG = credentials("config") // we retrieve  kubeconfig from secret file called config saved on jenkins
