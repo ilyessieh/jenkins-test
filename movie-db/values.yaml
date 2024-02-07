@@ -13,9 +13,9 @@ postgres:
     kind: PersistentVolumeClaim
     mountPath: /var/lib/postgresql/data
     pvc:
-      name: movie_db_pvc
+      name: movie-db-pvc
       accessMode: ReadWriteMany
-      storage: 10Gi
+      storage: 5Gi
   config:
     name: postgres-config-movie
     data:

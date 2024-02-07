@@ -13,9 +13,9 @@ postgres:
     kind: PersistentVolumeClaim
     mountPath: /var/lib/postgresql/data
     pvc:
-      name: cast_db_pvc
+      name: cast-db-pvc
       accessMode: ReadWriteMany
-      storage: 10Gi
+      storage: 5Gi
   config:
     name: postgres-config-cast
     data:
