@@ -103,7 +103,7 @@ stages {// CAST
                 script {
                 sh '''
                 docker login -u $DOCKER_ID -p $DOCKER_PASS
-                docker push $DOCKER_ID/$DOCKER_CAST_IMAGE:$DOCKER_TAG
+                docker push $DOCKER_ID/$DOCKER_MOVIE_IMAGE:$DOCKER_TAG
                 '''
                 }
             }
@@ -154,7 +154,7 @@ stages {// CAST
                 script {
                 sh '''
                 docker login -u $DOCKER_ID -p $DOCKER_PASS
-                docker push $DOCKER_ID/$DOCKER_CAST_IMAGE:$DOCKER_TAG
+                docker push $DOCKER_ID/$DOCKER_NGINX_IMAGE:$DOCKER_TAG
                 '''
                 }
             }
