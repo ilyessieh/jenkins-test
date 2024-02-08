@@ -6,7 +6,7 @@ from sqlalchemy import (Column, Integer, MetaData, String, Table,
 from databases import Database
 
 #DATABASE_URI = os.getenv('DATABASE_URI')
-DATABASE_URI = "postgresql://cast_db_username:cast_db_password@postgres-cast/cast_db_dev"
+DATABASE_URI = "postgresql://cast_db_username:cast_db_password@postgres-cast:5432/cast_db_dev"
 
 engine = create_engine(DATABASE_URI)
 metadata = MetaData()
