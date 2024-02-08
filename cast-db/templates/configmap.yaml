@@ -4,7 +4,5 @@ metadata:
   name: {{ .Values.postgres.config.name }}
   labels:
     app: {{ .Values.postgres.name }}
-data: 
-{{- range .Values.postgres.config.data }}
-  {{ .key }}: {{ .value }}
-{{- end}}
+data:
+  postgres-dbname: cast_db_dev

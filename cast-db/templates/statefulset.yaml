@@ -27,9 +27,22 @@ spec:
           imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: {{ .Values.postgres.container.port }}
-          envFrom:
-            - configMapRef:
-                name: {{ .Values.postgres.config.name }}
+          env:
+           - name: POSTGRES_USER
+             valueFrom:
+               secretKeyRef:
+                 name: postgres-secret
+                 key: postgres-root-username
+           - name: POSTGRES_PASSWORD
+             valueFrom:
+               secretKeyRef:
+                 name: postgres-secret
+                 key: postgres-root-password
+           - name: POSTGRES_DB
+             valueFrom:
+               configMapKeyRef:
+                 name: postgres-config-cast
+                 key: postgres-dbname
           volumeMounts:             
             - name: {{ .Values.postgres.volume.name }}
               mountPath: {{ .Values.postgres.volume.mountPath }}
