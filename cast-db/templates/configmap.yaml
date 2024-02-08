@@ -6,5 +6,5 @@ metadata:
     app: {{ .Values.postgres.name }}
 data: 
 {{- range .Values.postgres.config.data }}
-  {{ .key }}: {{ .value }}
+  - {{ .key }}: {{ .value }}
 {{- end}}
