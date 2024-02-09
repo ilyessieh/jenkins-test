@@ -6,3 +6,4 @@ metadata:
     app: {{ .Values.postgres.name }}
 data:
   postgres-dbname: cast_db_dev
+  postgres-host-method: trust
