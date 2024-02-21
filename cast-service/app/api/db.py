@@ -5,6 +5,10 @@ from sqlalchemy import (Column, Integer, MetaData, String, Table,
 
 from databases import Database
 
+cast_db_username = os.getenv('POSTGRES_USER')
+cast_db_password = os.getenv('POSTGRES_PASSWORD')
+cast_db_dev = os.getenv('POSTGRES_DB')
+
 #DATABASE_URI = os.getenv('DATABASE_URI')
 DATABASE_URI = "postgresql://cast_db_username:cast_db_password@postgres-cast/cast_db_dev"
 

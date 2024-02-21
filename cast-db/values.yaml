@@ -6,7 +6,7 @@ postgres:
     image: postgres:latest
     port: 5432
   service:
-    type: NodePort
+    type: ClusterIP
     protocol: TCP
   volume:
     name: cast-storage
